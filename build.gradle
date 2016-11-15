@@ -1,15 +1,43 @@
 group 'koprulu'
 version '1.0-SNAPSHOT'
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+    }
+}
+
 apply plugin: 'java'
 apply plugin: 'war'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+//jar {
+//    baseName = 'gs-handling-form-submission'
+//    version =  '0.1.0'
+//}
+//jar {//https://spring.io/guides/gs/gradle/     --1
+//    baseName = 'gs-gradle'
+//    version =  '0.1.0'
+//}
+jar {
+    baseName = 'gs-rest-service'
+    version =  '0.1.0'
+}
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    //compile "joda-time:joda-time:2.2" //-1
+    //compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-starter-web")
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
